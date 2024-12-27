@@ -1,110 +1,64 @@
-#include<stdio.h> 
+<!DOCTYPE html>
 
-#define INFI 99 
+<head>
 
-int edges[10][3],n,wt[10][10];; 
+ <title>Time Table </title>
 
-void prims(); 
+ <style>
 
-void main() 
+ body {
 
-{ 
+ font-family: Arial, sans-serif;
 
-int i,j; 
+ }
 
-printf("\n Enter the number of vertices: "); 
+ table {
 
-scanf("%d",&n); 
+ width: 80%;
 
-printf("\n Enter the cost matrix? \n"); 
+ margin: 20px auto;
 
-for( i=1;i<=n;i++) 
+ border-collapse: collapse;
 
-for(j=1;j<=n;j++) 
+ }
 
-scanf("%d",&wt[i][j]); 
+ th,
 
-prims(); 
+ td {
 
-} 
+ border: 1px solid #ddd;
 
-void prims() 
+ padding: 8px;
 
-{ 
+ text-align: center;
 
-int u[10],lowcost[10],visited[10]; 
+ }
 
-int min,mincost=0,i,j,v; 
+ th {
 
+ background-color: #f4f4f4;
+
+ color: #333;
+
+ }
+
+ tr:nth-child(even) {
+
+ background-color: #f9f9f9;
+
+ }
+
+ tr:nth-child(odd) {
+
+ background-color: #e6f7ff;
+
+ }
+
+ .lab-hour {
+
+ background-color: #ffcccc;
+
+ }
+
+ .elective-hour {
  
-
-visited[1]=1; 
-
-
-
-for(i=2;i<=n;i++) 
-
-{ 
-
-visited[i]=0; 
-
-u[i]=1; 
-
-lowcost[i]=wt[1][i]; 
-
-} 
-
-for(i=1;i<=n-1;i++) 
-{ min=lowcost[2]; 
-
-v=2; 
-
-for(j=3;j<=n;j++) 
-
-{ 
-
-if(lowcost[j]<min) 
-
-{ 
-
-min=lowcost[j]; 
-
-v=j; 
-
-} 
-
-} 
-
-edges[i][1]=u[v]; 
-
-edges[i][2]=v; 
-
-mincost+=lowcost[v]; 
-
-visited[v]=1; 
-
-lowcost[v]=INFI; 
-
-for(j=2;j<=n;j++) 
-
-if(wt[v][j]<lowcost[j] && !visited[j]) 
-
-{ 
-
-lowcost[j]=wt[v][j]; 
-
-u[j]=v; 
-
-} 
-
-} 
-
-printf("\n\n The edges of this minimum cost spanning tree are\n"); 
-
-for(i=1;i<=n-1;i++) 
-
-printf(" (%d,%d)\n",edges[i][1],edges[i][2]); 
-
-printf("\n Minimum cost Spanning Tree is:%d",mincost); 
-
-}
