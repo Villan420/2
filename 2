@@ -1,221 +1,119 @@
-<!DOCTYPE html>
+Header.js (in Src)
 
-<head>
+import React from 'react';
 
- <title>Time Table </title>
+// Header component receives props from the parent component (App)
 
- <style>
+function Header(props) {
 
- body {
+return (
 
- font-family: Arial, sans-serif;
+<header>
+
+<h1>{props.title}</h1>
+
+</header>
+ );
+
+}
+
+export default Header;
+
+Footer.js (in Src)
+
+import React from 'react';
+
+// Footer component receives props from the parent component (App)
+
+function Footer(props) {
+
+return (
+
+<footer>
+
+<p>{props.tagline}</p> {/* Display the tagline passed via props */}
+
+<small>{props.copyright}</small> {/* Display copyright information */}
+
+</footer>
+
+ );
+
+}
+
+export default Footer;
+
+App.js
+
+import React from 'react';
+
+import './App.css';
+
+// Import the Header and Footer components
+
+import Header from './Header';
+
+import Footer from './Footer';
+
+function App() {
+
+// Data to be passed to child components
+
+ const title = "Welcome to React World";
+
+ const tagline = "Code. Create. Innovate.";
+
+const copyright = "© 2025 Creative Coders Ltd.";
+
+return (
+
+<div className="App">
+
+{/* Pass data to Header and Footer components using props */}
+
+<Header title={title} />
+
+<Footer tagline={tagline} copyright={copyright} />
+
+</div>
+
+ );
 
  }
 
- table {
+export default App;
 
- width: 80%;
+ App.css
 
- margin: 20px auto;
+.App {
 
- border-collapse: collapse;
+text-align: center;
 
- }
+font-family: Arial, sans-serif;
 
- th,
+}
 
- td {
+header {
 
- border: 1px solid #ddd;
+background-color:slategray;
 
- padding: 8px;
+color: white;
 
- text-align: center;
+padding: 20px;
 
- }
+}
 
- th {
+footer {
+background-color:slategray;
 
- background-color: #f4f4f4;
+color: white;
 
- color: #333;
+padding: 10px;
 
- }
+position: fixed;
 
- tr:nth-child(even) {
+width: 100%;
 
- background-color: #f9f9f9;
+bottom: 0;
 
- }
-
- tr:nth-child(odd) {
-
- background-color: #e6f7ff;
-
- }
-
- .lab-hour {
-
- background-color: #ffcccc;
-
- }
-
- .elective-hour {
- background-color: #ccffcc;
-
- }
-
- .highlight {
-
- font-weight: bold;
-
- color: #d63384;
-
- }
-
- tfoot {
-
- background-color: #e0e0e0;
-
- font-weight: bold;
-
- }
-
- </style>
-
-</head>
-
-<body>
-
- <h1 style="text-align: center;">Time Table</h1>  
-
- <table>
-
- <thead>
-
- <tr>
-
- <th>Day/Time</th>
-
- <th>9:00 - 10:00</th>
-
- <th>10:00 - 11:00</th>
-
- <th>11:00 - 12:00</th>
-
- <th>12:00 - 1:00</th>
-
- <th>Lunch Break</th>
-
- <th>2:00 - 3:00</th>
-
- <th>3:00 - 4:00</th>
-
- </tr>
-
- </thead>
-
- <tbody>
-
- <tr>
-
- <td>Monday</td>
-
- <td>AI</td>
-
- <td>USP</td>
-
- <td class="lab-hour">Placement Lab</td>
-
- <td>Elective</td>
-
- <td rowspan="5" class="highlight">Break</td>
-
- <td class="lab-hour" colspan=2>Skill Lab</td>
-
- </tr>
-
- <tr>
-
- <td>Tuesday</td>
-
- <td class="elective-hour">Elective</td>
-
- <td>CN</td>
-
- <td>ATC</td>
-
- <td class="lab-hour">Skill Lab</td>
-
- <td class="lab-hour" colspan="2">WLLab</td>
-</tr>
-
- <tr>
-
- <td>Wednesday</td>
-
- <td class="lab-hour" colspan="2">CN Lab</td>
-
- <td>ATC</td>
-
- <td>CN</td>
-
- <td>AI</td>
-
- <td class="elective-hour">Elective</td>
-
- </tr>
-
- <tr>
-
- <td>Thursday</td>
-
- <td>CN</td>
-
- <td>ATC</td>
-
- <td>CN</td>
-
- <td class="elective-hour">Elective</td>
-
- <td>USP</td>
-
- <td>AI</td>
-
- </tr>
-
-<tr>
-
- <td>Friday</td>
-
- <td>CN</td>
-
- <td>AI</td>
-
- <td>USP</td>
-
- <td>ATC</td>
-
- <td class="elective-hour">Elective</td>
-
- <td>RM</td>
-
- </tr>
-
- </tbody>
-
- <tfoot>
-
- <tr>
-
- <td colspan="8">End of Timetable</td>
-
- </tr>
-
- </tfoot>
-
- </table>
-
-</body>
-
-</html>
+}
