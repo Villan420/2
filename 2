@@ -2,7 +2,6 @@ Header.js (in Src)
 
 import React from 'react';
 
-// Header component receives props from the parent component (App)
 
 function Header(props) {
 
@@ -23,7 +22,7 @@ Footer.js (in Src)
 
 import React from 'react';
 
-// Footer component receives props from the parent component (App)
+
 
 function Footer(props) {
 
@@ -31,9 +30,9 @@ return (
 
 <footer>
 
-<p>{props.tagline}</p> {/* Display the tagline passed via props */}
+<p>{props.tagline}</p> 
 
-<small>{props.copyright}</small> {/* Display copyright information */}
+<small>{props.copyright}</small>  
 
 </footer>
 
@@ -49,7 +48,6 @@ import React from 'react';
 
 import './App.css';
 
-// Import the Header and Footer components
 
 import Header from './Header';
 
@@ -57,7 +55,6 @@ import Footer from './Footer';
 
 function App() {
 
-// Data to be passed to child components
 
  const title = "Welcome to React World";
 
@@ -69,7 +66,6 @@ return (
 
 <div className="App">
 
-{/* Pass data to Header and Footer components using props */}
 
 <Header title={title} />
 
