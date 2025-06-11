@@ -1,115 +1,24 @@
-Header.js (in Src)
+import pandas as pd
 
-import React from 'react';
+import matplotlib.pyplot as plt
 
+import seaborn as sns
 
-function Header(props) {
+df=pd.read_csv('California Housing.csv')
+df=df.select_dtypes(include=['number'])
 
-return (
+correlation_matrix=df.corr()
 
-<header>
+plt.figure(figsize=(10,8))
 
-<h1>{props.title}</h1>
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm',fmt='.2f',linewidth=0.5)
 
-</header>
- );
+plt.title('correlation matrix heatmap')
 
-}
+plt.show()
 
-export default Header;
+sns.pairplot(df)
 
-Footer.js (in Src)
+plt.suptitle('pairwise relationships between features',y=1.02)
 
-import React from 'react';
-
-
-
-function Footer(props) {
-
-return (
-
-<footer>
-
-<p>{props.tagline}</p> 
-
-<small>{props.copyright}</small>  
-
-</footer>
-
- );
-
-}
-
-export default Footer;
-
-App.js
-
-import React from 'react';
-
-import './App.css';
-
-
-import Header from './Header';
-
-import Footer from './Footer';
-
-function App() {
-
-
- const title = "Welcome to React World";
-
- const tagline = "Code. Create. Innovate.";
-
-const copyright = "© 2025 Creative Coders Ltd.";
-
-return (
-
-<div className="App">
-
-
-<Header title={title} />
-
-<Footer tagline={tagline} copyright={copyright} />
-
-</div>
-
- );
-
- }
-
-export default App;
-
- App.css
-
-.App {
-
-text-align: center;
-
-font-family: Arial, sans-serif;
-
-}
-
-header {
-
-background-color:slategray;
-
-color: white;
-
-padding: 20px;
-
-}
-
-footer {
-background-color:slategray;
-
-color: white;
-
-padding: 10px;
-
-position: fixed;
-
-width: 100%;
-
-bottom: 0;
-
-}
+plt.show()
